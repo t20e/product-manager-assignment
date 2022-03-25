@@ -7,11 +7,12 @@ module.exports.getOneProduct =(req,res) =>{
         })
         .catch(err => res.json({message: 'something went wrong getting one product', error:err}));
 }
-//create product
+// //create product
 module.exports.createProduct = (req,res) =>{
     Product.create(req.body)
         .then(newProduct =>{
             res.json({results:newProduct})
+            console.log(newProduct);
         })
         .catch(err => res.json({message: 'something went creating product', error:err}));
 }
@@ -23,6 +24,18 @@ module.exports.findAllProducts = (req, res) =>{
             res.json({results:allProducts})
         })
         .catch(err => res.json({message: 'something went wrong fetching', error:err}));
+}
+//edit product
+module.exports.editProduct = (req,res) =>{
+    Product.findOneAndUpdate(
+        {_id: req.params.id},
+        req.body,
+        {new: true, runValidators:true}
+        )
+        .then(editingProduct=>{
+            res.json({results:editingProduct})
+        })
+        .catch(err =>res.json({message:'error updating product', error:err}));
 }
 
 //delete product

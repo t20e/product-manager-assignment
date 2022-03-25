@@ -1,0 +1,20 @@
+body{
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+#submitBTN{
+    width: 150px;
+    margin: 5px;
+    border-radius: 20px;
+    color: white;
+    align-self: center;
+    background-color: deepskyblue;
+}
+#form{
+    background-color: whitesmoke;
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 10px;
+}
